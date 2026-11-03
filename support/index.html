@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Support — YOUAIKE (SHANGHAI) GIFTS CO., LTD.</title>
-<meta name="description" content="Support for the apps published by YOUAIKE (SHANGHAI) GIFTS CO., LTD.: restore a purchase, request a refund, contact us.">
+<meta name="description" content="Support for the apps published by YOUAIKE (SHANGHAI) GIFTS CO., LTD.: what each app does, restore a purchase, request a refund, contact us.">
 <link rel="canonical" href="https://qgtechnology.com/support/">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E9E93'/%3E%3Cpath d='M20 20h6l6 10 6-10h6l-9 15v9h-6v-9z' fill='%23fff'/%3E%3C/svg%3E">
@@ -50,10 +50,20 @@
   .grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start}
   @media (max-width:720px){
     .grid{grid-template-columns:1fr; gap:24px}
+    .apps{grid-template-columns:1fr}
     h1{font-size:30px}
     .org{display:none}
     section{padding:48px 0}
   }
+
+  .apps{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:26px 0 0}
+  .app{border:1px solid var(--line); border-radius:var(--radius); padding:22px 22px 18px;
+       background:#fff; display:flex; flex-direction:column}
+  .app .plat{font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+             color:var(--accent-dark); font-weight:700; margin:0 0 6px}
+  .app h3{margin:0 0 8px; font-size:17px; letter-spacing:-.01em}
+  .app p.what{margin:0 0 14px; font-size:14.5px; flex:1}
+  .app p.pol{margin:0; font-size:14px; padding-top:12px; border-top:1px solid var(--line)}
 
   table{width:100%; border-collapse:collapse; font-size:15px}
   th,td{border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top}
@@ -100,26 +110,65 @@
 
 <section id="apps">
   <div class="wrap">
-    <h2>Apps &amp; privacy policies</h2>
-    <table>
-      <tr><th>App</th><th>Platform</th><th>Privacy policy</th></tr>
-      <tr>
-        <td>Yico Photo Frame</td>
-        <td>Android</td>
-        <td><a href="https://leitahh.github.io/yico-privacy/">leitahh.github.io/yico-privacy</a></td>
-      </tr>
-      <tr>
-        <td>Baker's Percentage Calc</td>
-        <td>Android · iOS</td>
-        <td><a href="https://leitahh.github.io/c-bakers-privacy/">leitahh.github.io/c-bakers-privacy</a></td>
-      </tr>
-      <tr>
-        <td>Spoke Length Calculator</td>
-        <td>Android · iOS</td>
-        <td><a href="https://leitahh.github.io/d-spoke-privacy/">leitahh.github.io/d-spoke-privacy</a></td>
-      </tr>
-    </table>
-    <p class="zh" style="margin-top:18px">每款 App 的隐私政策都是独立的一页，内容只描述该 App 自己。</p>
+    <h2>Our apps</h2>
+    <p class="lead">Everything we publish, in one place — five apps, five separate privacy policies.</p>
+    <p class="zh">我们发布的全部 App 都在下面。每款 App 的隐私政策都是独立的一页，只描述该 App 自己，
+       不是一份套话模板。</p>
+
+    <div class="apps">
+
+      <article class="app">
+        <p class="plat">Android · Google Play</p>
+        <h3>Yico Photo Frame</h3>
+        <p class="what">Turns a spare Android phone or tablet into a full-screen photo frame —
+           your own albums, your own music, no account, no ads, no watermark.</p>
+        <p class="pol"><a href="https://leitahh.github.io/yico-privacy/">Privacy Policy →</a></p>
+      </article>
+
+      <article class="app">
+        <p class="plat">Android · iOS</p>
+        <h3>Long Exposure Calculator</h3>
+        <p class="what">Exposure time after an ND filter, film reciprocity compensation, and which
+           step-up ring fits which lens — on one screen, with no network.</p>
+        <p class="pol"><a href="https://leitahh.github.io/a-photo-nd-privacy/">Privacy Policy →</a></p>
+      </article>
+
+      <article class="app">
+        <p class="plat">Android · iOS</p>
+        <h3>Cutlist</h3>
+        <p class="what">Board-feet and fraction maths for timber, plus 4×8 sheet layout for a
+           cut list. The nesting is a fast pass, not a proven optimum — the app says which.</p>
+        <p class="pol"><a href="https://leitahh.github.io/b-cutlist-privacy/">Privacy Policy →</a></p>
+      </article>
+
+      <article class="app">
+        <p class="plat">Android · iOS</p>
+        <h3>Baker's Percentage Calc</h3>
+        <p class="what">Baker's percentage, a dough timeline, and a record of what you changed
+           last time. The maths is free; Pro is one purchase that remembers your recipes.</p>
+        <p class="pol"><a href="https://leitahh.github.io/c-bakers-privacy/">Privacy Policy →</a></p>
+      </article>
+
+      <article class="app">
+        <p class="plat">Android · iOS</p>
+        <h3>Spoke Length Calculator</h3>
+        <p class="what">Spoke length from real hub and rim measurements — 61 models, each with a
+           cited source, so you are not guessing which model you have.</p>
+        <p class="pol"><a href="https://leitahh.github.io/d-spoke-privacy/">Privacy Policy →</a></p>
+      </article>
+
+      <article class="app" style="background:var(--soft); border-style:dashed">
+        <p class="plat">Also</p>
+        <h3>Something new, every month</h3>
+        <p class="what">We add roughly one app a month. When a new one ships, its card and its
+           privacy policy appear on this page — nothing else changes.</p>
+        <p class="pol"><a href="mailto:devgroup@qgtechnology.com">Ask us what is coming →</a></p>
+      </article>
+
+    </div>
+
+    <p class="zh" style="margin-top:22px">在商店里找不到某款 App？说明它还在审核中，
+       可以写信问 <a href="mailto:devgroup@qgtechnology.com">devgroup@qgtechnology.com</a>。</p>
   </div>
 </section>
 
@@ -168,9 +217,9 @@
 <section id="data">
   <div class="wrap">
     <h2>Your data</h2>
-    <p>All app data — recipes, wheel builds, settings — is stored on your device only. There is no
-       account and no server of ours. Uninstalling the app removes that data; there is nothing for
-       us to delete on our side.</p>
+    <p>All app data — recipes, wheel builds, cut lists, settings — is stored on your device only.
+       There is no account and no server of ours. Uninstalling the app removes that data; there is
+       nothing for us to delete on our side.</p>
     <p>Removing and reinstalling the app does not remove a Pro purchase: the store still remembers it.</p>
     <p class="zh">所有数据只在本机，没有账号、也没有我们的服务器。卸载即删除；我们这边没有可删的东西。
        卸载重装不影响已购买的 Pro，商店仍然记得这笔购买。</p>
@@ -209,7 +258,7 @@
 <footer>
   <div class="wrap">
     <span>© 2026 YOUAIKE (SHANGHAI) GIFTS CO., LTD.. All rights reserved.</span>
-    <span class="sp"><a href="/">Home</a> · <a href="https://leitahh.github.io/yico-privacy/">Privacy Policy</a></span>
+    <span class="sp"><a href="/">Home</a> · <a href="/support/#apps">All apps &amp; privacy</a></span>
   </div>
 </footer>
 
