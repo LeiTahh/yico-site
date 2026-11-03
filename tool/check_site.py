@@ -26,6 +26,14 @@ def read(rel: str) -> str:
     return (ROOT / rel).read_text(encoding="utf-8").replace("\r\n", "\n")
 
 
+BRAND = re.compile(r"<div class=\"brand\"><span class=\"mark\">(.*?)</span>\s*(.*?)</div>")
+
+
+def brand(html: str):
+    m = BRAND.search(html)
+    return (m.group(1).strip(), m.group(2).strip()) if m else None
+
+
 def cards(html: str) -> list[str]:
     """返回非 promo 的 App 卡片内容（promo 是「每月上新」那张说明卡，不占 App 计数）。"""
     out = []
@@ -83,6 +91,17 @@ def check(support: str, home: str) -> list[str]:
     if "<th>Privacy policy</th>" in support:
         bad.append("C7 support 页又变回表格版式（表头 Privacy policy），App 没有介绍")
 
+    # C8：左上角品牌在两页必须一模一样（同一处信息不许写两遍还写不一样）
+    b_sup, b_home = brand(support), brand(home)
+    if not b_sup or not b_home:
+        bad.append("C8 有一页找不到 header 品牌块")
+    elif b_sup != b_home:
+        bad.append(f"C8 两页品牌不一致：support={b_sup} / index={b_home}")
+    elif b_sup[1] != "Youaike":
+        bad.append(f"C8 品牌名应为 Youaike，现在是 {b_sup[1]}")
+    elif b_sup[0] != "Y":
+        bad.append(f"C8 品牌标记字母应为 Y，现在是 {b_sup[0]}")
+
     return bad
 
 
@@ -104,6 +123,11 @@ def selftest() -> int:
         ("C7", "塞回表格表头",
          support.replace("<h2>Our apps</h2>",
                          "<h2>Our apps</h2>\n<table><tr><th>Privacy policy</th></tr></table>"), home),
+        ("C8", "只把首页品牌改成 Yico，两页不一致",
+         support, home.replace("</span> Youaike</div>", "</span> Yico</div>")),
+        ("C8", "两页一起改回 Yico（一致但品牌名错）",
+         support.replace("</span> Youaike</div>", "</span> Yico</div>"),
+         home.replace("</span> Youaike</div>", "</span> Yico</div>")),
     ]
     failed = 0
     for want, desc, sup, hom in cases:
