@@ -50,7 +50,6 @@
   .grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start}
   @media (max-width:720px){
     .grid{grid-template-columns:1fr; gap:24px}
-    .apps{grid-template-columns:1fr}
     h1{font-size:30px}
     .org{display:none}
     section{padding:48px 0}
@@ -64,6 +63,9 @@
   .app h3{margin:0 0 8px; font-size:17px; letter-spacing:-.01em}
   .app p.what{margin:0 0 14px; font-size:14.5px; flex:1}
   .app p.pol{margin:0; font-size:14px; padding-top:12px; border-top:1px solid var(--line)}
+
+  /* 必须写在 .apps 之后：同优先级下后写的规则赢，否则手机上仍是两列 */
+  @media (max-width:720px){ .apps{grid-template-columns:1fr} }
 
   table{width:100%; border-collapse:collapse; font-size:15px}
   th,td{border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top}
@@ -157,7 +159,7 @@
         <p class="pol"><a href="https://leitahh.github.io/d-spoke-privacy/">Privacy Policy →</a></p>
       </article>
 
-      <article class="app" style="background:var(--soft); border-style:dashed">
+      <article class="app promo" style="background:var(--soft); border-style:dashed">
         <p class="plat">Also</p>
         <h3>Something new, every month</h3>
         <p class="what">We add roughly one app a month. When a new one ships, its card and its
